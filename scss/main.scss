@@ -33,6 +33,14 @@ h1 {
   font-weight: 300;
 }
 
+header {
+  margin-bottom: 60px;
+
+  p {
+    font-size: 0.9em;
+  }
+}
+
 .logo {
   text-indent: -999em;
   display: block;
@@ -147,6 +155,7 @@ table {
         min-width: 275px;
         text-align: left;
         padding-left: 20px;
+        letter-spacing: -1px;
       }
 
       &:nth-child(4) {
