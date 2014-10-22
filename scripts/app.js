@@ -1,5 +1,5 @@
 (function(w,d) {
-	console.log('word up');
+	console.log('hello you');
 
 
 	// var quantityRows = $('.quantity');

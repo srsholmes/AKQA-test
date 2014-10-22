@@ -6,7 +6,9 @@
         <title>AKQA test</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif:400,700'  rel='stylesheet' type='text/css'>
+        <!-- Styles -->
         <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
@@ -21,27 +23,103 @@
 
 <!-- Remeber to add all the form data as hidden input fields as it wont submit the data on the form unless they are fields. Also wrap the whole thing in a form. 
  -->            
-
-            <table>                
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table>
-
+            <form action="/submit" meth="post">
+                <table>                
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span>Cotton T-Shirt, Medium</span>
+                            </td>
+                            <td>
+                                <span>£1.99</span>
+                            </td>
+                            <td>
+                                <input type="text" class="quantity" value="1"/>
+                                <span class="quantity">
+                                    <button type="button">+</button>
+                                    <button type="button">-</button>
+                                </span>
+                            </td>
+                            <td>
+                                <span>£1.99</span>
+                            </td>
+                            <td>
+                                <a href="#" class="remove-item"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Baseball Cap,One Size</span>
+                            </td>
+                            <td>
+                                <span>£2.99</span>
+                            </td>
+                            <td>
+                                <input type="text" class="quantity" value="2"/>
+                                <span class="quantity">
+                                    <button type="button">+</button>
+                                    <button type="button">-</button>
+                                </span>
+                            </td>
+                            <td>
+                                <span>£5.98</span>
+                            </td>
+                            <td>
+                                <a href="#" class="remove-item"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Swim Shorts, Medium</span>
+                            </td>
+                            <td>
+                                <span>£3.99</span>
+                            </td>
+                            <td>
+                                <input type="text" class="quantity" value="1"/>
+                                <span class="quantity">
+                                    <button type="button">+</button>
+                                    <button type="button">-</button>
+                                </span>
+                            </td>
+                            <td>
+                                <span>£3.99</span>
+                            </td>
+                            <td>
+                                <a href="#" class="remove-item"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Subtotal</td>
+                            <td>£11.96</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">VAT @ 20%</td>
+                            <td>£2.39</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Total Cost</td>
+                            <td>£14.35</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </form>
                 
 
         </div>
 
          <footer>
-            <p><strong>&copy; 2013 AKQA Ltd.</strong> Registered in England: 2964394</p>
+            <p>&copy;<strong>2013 AKQA Ltd.</strong> Registered in England: 2964394</p>
         </footer>
 
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
