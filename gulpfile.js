@@ -50,6 +50,12 @@ gulp.task('styles', function() {
         .pipe(livereload());
 });
 
+gulp.task('html', function() {
+    gulp.src(['./public/**/*.html'])
+        .on('error', onerror)
+        .pipe(livereload());
+});
+
 gulp.task('watch', function() {
     gulp.watch('scss/**', ['styles']);
     gulp.watch('scripts/**', ['scripts']);
