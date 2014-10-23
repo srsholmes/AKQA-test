@@ -7,7 +7,6 @@
 		$form = $('form');
 
 	function init() {
-		console.log('init called');
 		removeItems();
 		plusMinus();
 		inputAmount();
@@ -28,7 +27,6 @@
 					$('tbody').append('<tr><td class="no-items"><p>Sorry, you have no items in your basket.</p></td></tr>');
 					$('input[type="submit"]').attr('disabled','disabled').addClass('disabled');
 				}
-
 				changeQuantity('removed', input);
 			});
 		});
