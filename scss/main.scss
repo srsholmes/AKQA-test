@@ -34,7 +34,7 @@ $dark-blue-hover: #3333ff;
 body {
   @extend .font-serif;
   background: linear-gradient(white, #dadada);
-  margin-bottom: 80px;
+  margin-bottom: 140px;
 }
 
 
@@ -135,15 +135,15 @@ form {
     font-size: 20px;
     outline: 0;
     float: right;
-    margin-top: 20px;
-    margin-right: 20px;
+    margin-top: 60px;
+    margin-right: 8px;
+    font-weight: 800;
     transition: background-color 0.1s ease-in;
 
     @media screen and (max-width: 640px) {
-      position: relative;
-      bottom: inherit;
-      right: -70px;
+      margin-top: 10px;
     }
+    
     &:hover {
       background-color: $dark-blue-hover;
     }
@@ -225,7 +225,6 @@ table {
       }
 
       &:first-child {
-        // min-width: 275px;
         text-align: left;
         padding-left: 20px;
         letter-spacing: -1px;
@@ -290,6 +289,12 @@ table {
     }
 
     td { 
+
+      &.subtotal, &.vat, &.total-cost {
+        text-align: right;
+        padding-right: 10px;
+      }
+
       &:nth-child(3) {
         height: 75px;
         vertical-align: bottom;
