@@ -97,6 +97,7 @@ form {
     text-align: right;
     @extend .font-serif;
     padding-right: 3px;
+    outline: 0;
   }
 
   input[type="submit"] {
@@ -114,7 +115,9 @@ form {
     width: 125px;
     height: 51px;
     font-size: 20px;
+    outline: 0;
     transition: background-color 0.1s ease-in;
+
     &:hover {
       background-color: $dark-blue-hover;
     }

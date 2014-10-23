@@ -145,21 +145,21 @@
 
 			//I am sssuming the back end would format the data sent from the front end. 
 			var data = $form.serialize();
-
+			console.log(data);
 			$.ajax({
 		        type: "POST",
-		        url: '/submit',
+		        url: '/',
 		        dataType: 'json',
 		        async: false,
 		        //json object to sent to the authentication url
 		        data: data,
 		        success: function () {
 		        	//Success call back here...
-		        	console.log(data);
+		        	alert('ajax complete');
 		        },
 		        error: function() {
-		        	//Ajax fail call back.
-		        	console.log(data);
+		       		//Ajax fail call back. I would show some sort of error message if the ajax failed.
+		        	alert('ajax failed');
 		        } 
 		    });
 		});
