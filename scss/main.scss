@@ -5,12 +5,21 @@ html {
   height: 100%;
   width: 100%;
   position: relative;
-}
+  min-height: 700px;
 
+  @media screen and (max-width: 640px) {
+    height: auto;
+    min-height: inherit;
+  }
+
+}
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 //Fonts
 .font-sans-serif {
   font-family: 'Droid Sans', sans-serif;
@@ -28,7 +37,24 @@ $dark-blue-hover: #3333ff;
 
 body {
   @extend .font-serif;
+  height: 100%;
 }
+
+
+.wrapper {
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  max-width: 540px;
+  padding-top: 40px;
+  margin: 0 auto -41px;
+}
+
+.push {
+  height: 41px;
+}
+
+
 
 h1 {
   text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
@@ -37,13 +63,13 @@ h1 {
 
 header {
   margin-bottom: 60px;
+  padding-left: 20px;
 
   p {
     font-size: 0.9em;
   }
 }
 
-//TODO add in styles for non SVG browsers
 .logo {
   text-indent: -999em;
   display: block;
@@ -51,12 +77,13 @@ header {
   width: 100px;
   height: 48px;
   background-size: cover;
+  margin-bottom: 75px;
 }
 
 .remove-item {
   display: block;
   width: 16px;
-  height: 22px;
+  height: 100%;
   text-decoration: none;
   color: $dark-blue;
   transition: color 0.2s ease-in;
@@ -64,6 +91,10 @@ header {
   position: absolute;
   top: 5px;
   right: 30px;
+
+  @media screen and (max-width: 640px) {
+    top: 33%;
+  }
 
   &:hover {
     color: $dark-blue-hover;
@@ -74,19 +105,11 @@ header {
   }
 }
 
-.wrapper {
-  margin: 0 auto;
-  width: 80%;
-  max-width: 540px;
-  padding-top: 40px;
-}
-
-
 //Form items
 
 form {
   position: relative;
-  padding-bottom: 60px;
+  margin-bottom: 30px;
 
   input[type="text"] {
     height: 30px;
@@ -109,7 +132,6 @@ form {
     border-radius: 10px;
     box-shadow: 4px 4px 5px rgba(0,0,0,0.5);
     cursor: pointer;
-    position:  absolute;
     bottom: 0;
     right: 5%;
     width: 125px;
@@ -139,13 +161,23 @@ form {
       background: #999999;
       padding: 0;
       color: white;
-      width: 16px;
+      width: 100%;
       height: 14px;
       display: block;
       margin-bottom: 2px;
       font-size: 12px;
       padding-top: 1px;
       cursor: pointer;
+    }
+
+    @media screen and (max-width: 640px) {
+       width: 100%;
+
+       a {
+        top: 6px;
+        height: 17px;
+        font-size: 14px;
+       }
     }
   }
 }
@@ -168,11 +200,15 @@ table {
 
   tr {
     td {
-      min-width: 83px;
+      // min-width: 83px;
       text-align: center;
       padding: 7px 0;
       border: none;
       position: relative;
+
+      @media screen and (max-width: 640px) {
+       padding: 17px 4px;
+      }
 
       &:first-child {
         // min-width: 275px;
@@ -232,9 +268,6 @@ table {
 
 footer {
   display: block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   width: 100%;
   height: 41px;
   border-top: 1px solid black;
@@ -248,5 +281,13 @@ footer {
     margin: auto;
     color: white;
     @extend .font-sans-serif;
+  }
+}
+
+//IE Specific styles 
+
+html.lt-ie9 {
+  .logo {
+    background: url('/img/logo.png');
   }
 }

@@ -142,19 +142,16 @@
 	function formSubmit() {
 		$form.submit(function(event) {
 			event.preventDefault();
-
 			//I am sssuming the back end would format the data sent from the front end. 
 			var data = $form.serialize();
-			console.log(data);
+
 			$.ajax({
 		        type: "POST",
 		        url: '/',
 		        dataType: 'json',
 		        async: false,
-		        //json object to sent to the authentication url
 		        data: data,
 		        success: function () {
-		        	//Success call back here...
 		        	alert('ajax complete');
 		        },
 		        error: function() {
