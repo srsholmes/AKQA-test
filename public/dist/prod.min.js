@@ -55,8 +55,7 @@
 	function inputAmount() {
 		$quantities.each(function(i, el) {
 			var $el = $(el),
-				//Need to declare the input to find the hidden fields as well so they update.
-				input = $el.parent().parent().find('input');
+				input = $el.parent().parent().find('input.quantity');
 			var oldVal = $el.val();
 			$el.change(function() {
 			  	var val = $el.val();
@@ -98,9 +97,11 @@
 		var row = input.parent().parent(),
 			$itemPrice = row.find('.price span'),
 			$itemCost = row.find('.cost span'),
+			$costField = row.find('.cost input');
 			itemCost = parseFloat($itemPrice.text().replace(/\u00A3/g, '')).toFixed(2),
 			qCost = parseFloat(quantity * itemCost).toFixed(2);
 
+		$costField.val(qCost);
 		$itemCost.text('£' + qCost);
 		calculateSubtotal();
 	};
@@ -115,6 +116,7 @@
 			subtotal = subtotal + amount;
 		});
 		var newSub = parseFloat(subtotal);
+		$('.subtotal input').val(newSub.toFixed(2));
 		$('.subtotal span').text('£' + newSub.toFixed(2));
 		valueAddedTax(newSub);
 	};
@@ -123,15 +125,17 @@
 	function valueAddedTax(newSub){
 		var $vatField = $('.vat span'),
 			vat = 0.2 * newSub;
+		$('.vat input').val(vat.toFixed(2));
 		$vatField.text('£' + vat.toFixed(2));
 		calculateTotalPrice(newSub, vat);
 	}
 
 	//Calculate the total price
 	function calculateTotalPrice(newSub, vat){
-		var $total = $('.total-cost');
-		var total = (newSub + vat).toFixed(2);
-		$total.text('£' + total);
+		var $total = $('.total-cost span');		
+		var total = newSub + vat;
+		$('.total-cost input').val(total.toFixed(2));
+		$total.text('£' + total.toFixed(2));
 	}
 	init();
 	

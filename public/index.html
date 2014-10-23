@@ -45,7 +45,6 @@
                             </td>
                             <td>
                                 <input type="text" class="quantity" value="1"/>
-                                <input type="hidden" class="quantity" value="1"/>
                                 <span class="quantity">
                                     <button class="plus"  type="button">+</button>
                                     <button class="minus" type="button">-</button>
@@ -68,7 +67,6 @@
                             </td>
                             <td>
                                 <input type="text" class="quantity" value="2"/>
-                                <input type="hidden" class="quantity" value="2"/>
                                 <span class="quantity">
                                     <button class="plus"  type="button">+</button>
                                     <button class="minus" type="button">-</button>                                </span>
@@ -90,7 +88,6 @@
                             </td>
                             <td>
                                 <input type="text" class="quantity" value="1"/>
-                                <input type="hidden" class="quantity" value="1"/>
                                 <span class="quantity">
                                     <button class="plus"  type="button">+</button>
                                     <button class="minus" type="button">-</button>
@@ -106,18 +103,27 @@
                     <tfoot>
                         <tr>
                             <td colspan="3"><span>Subtotal</span></td>
-                            <td class="subtotal"><span> £11.96</span></td>
-                            <input type="hidden" value="11.96"/>
+                            <td class="subtotal">
+                                <span> £11.96</span>
+                                <input type="hidden" value="11.96"/>
+                            </td>
+                            
                         </tr>
                         <tr>
                             <td colspan="3"><span>VAT @ 20%</span></td>
-                            <td class="vat"> <span> £2.39</span></td>
-                            <input type="hidden" value="2.39"/>
+                            <td class="vat">
+                                <span> £2.39</span>
+                                <input type="hidden" value="2.39"/>
+                            </td>
+                           
                         </tr>
                         <tr>
                             <td colspan="3"><span>Total Cost</span></td>
-                            <td class="total-cost"><span>£14.35</span></td>
-                            <input type="hidden" value="14.35"/>
+                            <td class="total-cost">
+                                <span>£14.35</span>
+                                <input type="hidden" value="14.35"/>
+                            </td>
+                            
                         </tr>
                     </tfoot>
                 </table>
