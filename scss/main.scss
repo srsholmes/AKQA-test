@@ -130,7 +130,7 @@ form {
     vertical-align: top;
     display: inline-block;
 
-    button {
+    a {
       position: relative;
       border: none;
       background: #999999;
@@ -140,7 +140,8 @@ form {
       height: 14px;
       display: block;
       margin-bottom: 2px;
-      font-size: 9px;
+      font-size: 12px;
+      padding-top: 1px;
       cursor: pointer;
     }
   }

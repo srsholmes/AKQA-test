@@ -4,13 +4,14 @@
 
 	var $quantities = $('input.quantity'),
 		$removeItem = $('.remove-item'),
-		$thead = $('thead');
+		$form = $('form');
 
 	function init() {
 		console.log('init called');
 		removeItems();
 		plusMinus();
 		inputAmount();
+		formSubmit();
 	}
 
 	//Add a click event for when the bin is clicked and also check if it is the last row.
@@ -24,7 +25,6 @@
 				var $rows = $('tbody tr');
 				//When the user gets to the last row
 				if($rows.length < 1) {
-					// $thead.remove();
 					$('tbody').append('<p>Sorry, you have no items in your basket.</p>');
 					$('input[type="submit"]').attr('disabled','disabled').addClass('disabled');
 				}
@@ -36,7 +36,7 @@
 
 	//Deal with the plus and minus buttons.
 	function plusMinus() {
-		var $button = $('span.quantity button');
+		var $button = $('span.quantity a');
 		$button.each(function(i, el) {
 			var $el = $(el),
 				input = $el.parent().parent().find('input');
@@ -128,7 +128,7 @@
 		$('.vat input').val(vat.toFixed(2));
 		$vatField.text('£' + vat.toFixed(2));
 		calculateTotalPrice(newSub, vat);
-	}
+	};
 
 	//Calculate the total price
 	function calculateTotalPrice(newSub, vat){
@@ -136,7 +136,36 @@
 		var total = newSub + vat;
 		$('.total-cost input').val(total.toFixed(2));
 		$total.text('£' + total.toFixed(2));
-	}
+	};
+
+	//Form Submit
+	function formSubmit() {
+		$form.submit(function(event) {
+			event.preventDefault();
+
+			//I am sssuming the back end would format the data sent from the front end. 
+			var data = $form.serialize();
+
+			$.ajax({
+		        type: "POST",
+		        url: '/submit',
+		        dataType: 'json',
+		        async: false,
+		        //json object to sent to the authentication url
+		        data: data,
+		        success: function () {
+		        	//Success call back here...
+		        	console.log(data);
+		        },
+		        error: function() {
+		        	//Ajax fail call back.
+		        	console.log(data);
+		        } 
+		    });
+		});
+	};
+	
+
 	init();
 	
 })(window,document);
