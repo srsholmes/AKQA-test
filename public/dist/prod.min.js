@@ -144,7 +144,7 @@
 			event.preventDefault();
 			//I am sssuming the back end would format the data sent from the front end. 
 			var data = $form.serialize();
-
+			console.log(data);
 			$.ajax({
 		        type: "POST",
 		        url: '/',
