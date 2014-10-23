@@ -6,7 +6,6 @@ html {
     height: auto;
     min-height: inherit;
   }
-
 }
 
 //Reset
@@ -16,7 +15,7 @@ html {
   padding: 0;
 }
 
-//Fonts and icons
+//Fonts
 .font-sans-serif {
   font-family: 'Droid Sans', sans-serif;
 }
@@ -34,7 +33,6 @@ $dark-blue-hover: #3333ff;
 body {
   @extend .font-serif;
   background: linear-gradient(white, #dadada);
-  margin-bottom: 140px;
 }
 
 
@@ -44,7 +42,7 @@ body {
   max-width: 540px;
   padding-top: 40px;
   margin: auto;
-  margin-bottom: 80px;
+  margin-bottom: 180px;
   // margin-bottom: 151px;
 }
 
@@ -139,11 +137,12 @@ form {
     margin-right: 8px;
     font-weight: 800;
     transition: background-color 0.1s ease-in;
+    letter-spacing: -1px;
 
     @media screen and (max-width: 640px) {
       margin-top: 10px;
     }
-    
+
     &:hover {
       background-color: $dark-blue-hover;
     }
@@ -212,7 +211,7 @@ table {
 
     td {
       text-align: center;
-      padding: 7px 0;
+      padding: 9px 0;
       border: none;
       position: relative;
 
