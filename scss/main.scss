@@ -1,3 +1,5 @@
+@import "partials/icons";
+
 html {
   background: linear-gradient(white, #dadada);
   height: 100%;
@@ -41,21 +43,34 @@ header {
   }
 }
 
+//TODO add in styles for non SVG browsers
 .logo {
   text-indent: -999em;
   display: block;
-  background: url('/img/logo.png');
+  background: url('/img/svg/logo.svg');
   width: 100px;
   height: 48px;
+  background-size: cover;
 }
 
 .remove-item {
-  //Need to add in a hover state. Make the icon a embedded font.
   display: inline-block;
-  background: red;
-  background: url('/img/remove-item.png');
   width: 16px;
   height: 22px;
+  text-decoration: none;
+  color: $dark-blue;
+  transition: color 0.2s ease-in;
+  vertical-align: middle;
+  position: relative;
+  top: -3px;
+
+  &:hover {
+    color: $dark-blue-hover;
+  }
+
+  &:before {
+    font-size: 28px;
+  }
 }
 
 .wrapper {
@@ -102,6 +117,10 @@ form {
     &:hover {
       background-color: $dark-blue-hover;
     }
+
+    &.disabled {
+      background-color: #adadad;
+    }
   }
 
   .quantity {
@@ -138,9 +157,6 @@ table {
         text-align: left;
         padding-left: 20px;
       }
-      &:nth-child(4) {
-        text-align: right;
-      }
     }
   }
 
@@ -159,7 +175,14 @@ table {
       }
 
       &:nth-child(4) {
-        text-align: right;
+        padding-right: 15px;
+
+        span {
+          margin-right: 10px;
+        }
+        a {
+          margin-right: -50px;
+        }
       }
 
       &:nth-child(5) {
@@ -180,6 +203,7 @@ table {
     td {
       &:nth-child(2) {
         text-align: right;
+        padding-right: 11px;
       }
     }
 

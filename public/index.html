@@ -23,7 +23,7 @@
 
 <!-- Remeber to add all the form data as hidden input fields as it wont submit the data on the form unless they are fields. Also wrap the whole thing in a form. 
  -->            
-            <form action="/submit" meth="post">
+            <form action="/submit" method="post">
                 <table>                
                     <thead>
                         <tr>
@@ -38,78 +38,71 @@
                             <td>
                                 <span>Cotton T-Shirt, Medium</span>
                             </td>
-                            <td>
+                            <td class="price">
                                 <span>£1.99</span>
                             </td>
                             <td>
                                 <input type="text" class="quantity" value="1"/>
                                 <span class="quantity">
-                                    <button type="button">+</button>
-                                    <button type="button">-</button>
+                                    <button class="plus"  type="button">+</button>
+                                    <button class="minus" type="button">-</button>
                                 </span>
                             </td>
-                            <td>
+                            <td class="cost">
                                 <span>£1.99</span>
-                            </td>
-                            <td>
-                                <a href="#" class="remove-item"></a>
+                                <a href="#" class="remove-item icon-trash"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <span>Baseball Cap, One Size</span>
                             </td>
-                            <td>
+                            <td class="price">
                                 <span>£2.99</span>
                             </td>
                             <td>
                                 <input type="text" class="quantity" value="2"/>
                                 <span class="quantity">
-                                    <button type="button">+</button>
-                                    <button type="button">-</button>
-                                </span>
+                                    <button class="plus"  type="button">+</button>
+                                    <button class="minus" type="button">-</button>                                </span>
                             </td>
-                            <td>
+                            <td class="cost">
                                 <span>£5.98</span>
-                            </td>
-                            <td>
-                                <a href="#" class="remove-item"></a>
+                                <a href="#" class="remove-item icon-trash"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <span>Swim Shorts, Medium</span>
                             </td>
-                            <td>
+                            <td class="price">
                                 <span>£3.99</span>
                             </td>
                             <td>
                                 <input type="text" class="quantity" value="1"/>
                                 <span class="quantity">
-                                    <button type="button">+</button>
-                                    <button type="button">-</button>
+                                    <button class="plus"  type="button">+</button>
+                                    <button class="minus" type="button">-</button>
                                 </span>
                             </td>
-                            <td>
+                            <td class="cost">
                                 <span>£3.99</span>
-                            </td>
-                            <td>
-                                <a href="#" class="remove-item"></a>
+                                <a href="#" class="remove-item icon-trash"></a>
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3">Subtotal</td>
-                            <td>£11.96</td>
+                            <td colspan="3"><span>Subtotal</span></td>
+                            <td class="subtotal"><span> £11.96</span></td>
                         </tr>
                         <tr>
-                            <td colspan="3">VAT @ 20%</td>
-                            <td>£2.39</td>
+                            <td colspan="3"><span>VAT @ 20%</span></td>
+                            <td class="vat"> <span> £2.39</span></td>
                         </tr>
                         <tr>
-                            <td colspan="3">Total Cost</td>
-                            <td>£14.35</td>
+                            <td colspan="3"><span>Total Cost</span></td>
+                            <td class="total-cost"><span>£14.35</span></td>
                         </tr>
                     </tfoot>
                 </table>
