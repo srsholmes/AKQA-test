@@ -78,6 +78,10 @@ header {
   height: 48px;
   background-size: cover;
   margin-bottom: 75px;
+
+  @media screen and (max-width: 640px) {
+    margin-bottom: 20px;
+  }
 }
 
 .remove-item {
@@ -109,7 +113,7 @@ header {
 
 form {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 
   input[type="text"] {
     height: 30px;
@@ -139,7 +143,15 @@ form {
     font-size: 20px;
     outline: 0;
     transition: background-color 0.1s ease-in;
+    right: 10px;
+    position: absolute;
+    bottom: -90px;
 
+    @media screen and (max-width: 640px) {
+      position: relative;
+      bottom: inherit;
+      right: -70px;
+    }
     &:hover {
       background-color: $dark-blue-hover;
     }
@@ -205,6 +217,10 @@ table {
       padding: 7px 0;
       border: none;
       position: relative;
+
+      &.no-items {
+        padding-top: 10px;
+      }
 
       @media screen and (max-width: 640px) {
        padding: 17px 4px;

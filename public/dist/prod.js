@@ -25,7 +25,7 @@
 				var $rows = $('tbody tr');
 				//When the user gets to the last row
 				if($rows.length < 1) {
-					$('tbody').append('<p>Sorry, you have no items in your basket.</p>');
+					$('tbody').append('<tr><td class="no-items"><p>Sorry, you have no items in your basket.</p></td></tr>');
 					$('input[type="submit"]').attr('disabled','disabled').addClass('disabled');
 				}
 
