@@ -58,6 +58,7 @@ h1 {
 header {
   margin-bottom: 60px;
   padding-left: 20px;
+  display: block;
 
   p {
     font-size: 0.9em;
@@ -87,8 +88,8 @@ header {
   transition: color 0.2s ease-in;
   vertical-align: middle;
   position: absolute;
-  top: 8px;
-  right: 30px;
+  top: 12px;
+  left: 110px;
   background: url('/img/remove-item-sprite.png');
 
   @media screen and (max-width: 640px) {
@@ -132,7 +133,7 @@ form {
     box-shadow: 4px 4px 5px rgba(0,0,0,0.5);
     cursor: pointer;
     right: 5%;
-    width: 125px;
+    width: auto;
     height: 51px;
     font-size: 22px;
     outline: 0;
@@ -299,7 +300,7 @@ tfoot {
   td { 
     &.subtotal, &.vat, &.total-cost {
       text-align: right;
-      padding-right: 10px;
+      padding-right: 17px;
     }
     &:nth-child(3) {
       height: 75px;
@@ -333,5 +334,8 @@ footer {
 html.lt-ie9 {
   .logo {
     background: url('/img/logo.png');
+  }
+  input[type="text"]{
+    line-height: 25px;
   }
 }

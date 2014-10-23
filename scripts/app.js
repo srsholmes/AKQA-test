@@ -73,7 +73,7 @@
 		if(change == 'removed') quantity = 0;
 		if(change =='inc' || change =='dec'){
 			var quantity = input.val();
-			//Handle if the user tries to do more than 10 or less than 0.
+			//Handle if the user tries to increment/decrement to more than 10 or less than 0.
 			if(quantity >= 10 && change == 'inc') return;
 			if(quantity <= 0 && change == 'dec') return;
 			change == 'inc' ? quantity++ : quantity--;
@@ -140,9 +140,8 @@
 	function formSubmit() {
 		$form.submit(function(event) {
 			event.preventDefault();
-			//I am sssuming the back end would format the data sent from the front end. 
+			//I am asssuming the back end would format the data sent from the front end. 
 			var data = $form.serialize();
-			console.log(data);
 			$.ajax({
 		        type: "POST",
 		        url: '/',
