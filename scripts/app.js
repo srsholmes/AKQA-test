@@ -2,7 +2,7 @@
 
 	//Cache common selectors we need. 
 
-	var $quantities = $('input[type=text].quantity'),
+	var $quantities = $('input.quantity'),
 		$removeItem = $('.remove-item'),
 		$thead = $('thead');
 
@@ -15,12 +15,12 @@
 
 	//Add a click event for when the bin is clicked and also check if it is the last row.
 	function removeItems() {
-		$removeItem.each(function() {
-			var $this = $(this);
-			var input = $this.parent().parent().find('input');
-			$this.on('click', function(event) {
+		$removeItem.each(function(i, el) {
+			var $el = $(el);
+			var input = $el.parent().parent().find('input');
+			$el.on('click', function(event) {
 				event.preventDefault();	
-				$this.parent().parent().remove();
+				$el.parent().parent().remove();
 				var $rows = $('tbody tr');
 				//When the user gets to the last row
 				if($rows.length < 1) {
@@ -37,12 +37,12 @@
 	//Deal with the plus and minus buttons.
 	function plusMinus() {
 		var $button = $('span.quantity button');
-		$button.each(function() {
-			var $this = $(this),
-				input = $this.parent().parent().find('input');
-			$this.on('click', function(event) {
+		$button.each(function(i, el) {
+			var $el = $(el),
+				input = $el.parent().parent().find('input');
+			$el.on('click', function(event) {
 				event.preventDefault();
-				if($this.hasClass('plus')) {
+				if($el.hasClass('plus')) {
 					changeQuantity('inc', input);
 				} else {
 					changeQuantity('dec', input);
@@ -53,11 +53,20 @@
 
 	//When the user types in an amount to the box, update the quantities
 	function inputAmount() {
-		$quantities.each(function() {
-			var $this = $(this);
-			$this.change(function() {
-			  	var val = $this.val();
-			  	changeQuantity(val, $this)
+		$quantities.each(function(i, el) {
+			var $el = $(el),
+				//Need to declare the input to find the hidden fields as well so they update.
+				input = $el.parent().parent().find('input');
+			var oldVal = $el.val();
+			$el.change(function() {
+			  	var val = $el.val();
+			  	//Check to see if the user inputs anything other than a number and if so revert it to its original state. 
+			  	if (!isNaN(val)) {
+					changeQuantity(val, input);
+			  	} else {
+			  		val = oldVal;
+			  		changeQuantity(val, input);
+			  	}		  	
 			});
 		});
 	}
@@ -91,38 +100,37 @@
 			$itemCost = row.find('.cost span'),
 			itemCost = parseFloat($itemPrice.text().replace(/\u00A3/g, '')).toFixed(2),
 			qCost = parseFloat(quantity * itemCost).toFixed(2);
-			$itemCost.text('£' + qCost);
-			calculateSubtotal();
+
+		$itemCost.text('£' + qCost);
+		calculateSubtotal();
 	};
 
 	//Calculate the sub total of all the items
 	function calculateSubtotal() {
-		var $costs = $('.cost span');
-		var subtotal = 0.00;
-		$costs.each(function() {
-			var $this = $(this);
-			var amount =  parseFloat($this.text().replace(/\u00A3/g, ''));
+		var $costs = $('.cost span'),
+			subtotal = 0;
+		$costs.each(function(i, el) {
+			var $el = $(el);
+			var amount =  parseFloat($el.text().replace(/\u00A3/g, ''));
 			subtotal = subtotal + amount;
 		});
-		var newSub = parseFloat(subtotal).toFixed(2);
-		$('.subtotal span').text('£' + newSub);
+		var newSub = parseFloat(subtotal);
+		$('.subtotal span').text('£' + newSub.toFixed(2));
 		valueAddedTax(newSub);
 	};
 
 	//Calculate the VAT
 	function valueAddedTax(newSub){
 		var $vatField = $('.vat span'),
-			vat = parseFloat((0.2 * newSub)).toFixed(2);
-		$vatField.text('£' + vat);
+			vat = 0.2 * newSub;
+		$vatField.text('£' + vat.toFixed(2));
 		calculateTotalPrice(newSub, vat);
 	}
 
 	//Calculate the total price
 	function calculateTotalPrice(newSub, vat){
 		var $total = $('.total-cost');
-		newSub = parseFloat(newSub);
-		vat = parseFloat(vat);
-		var total = parseFloat(newSub + vat).toFixed(2);
+		var total = (newSub + vat).toFixed(2);
 		$total.text('£' + total);
 	}
 	init();

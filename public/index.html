@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AKQA test</title>
+        <title>AKQA Your Shopping Cart</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
         <!-- Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif:400,700'  rel='stylesheet' type='text/css'>
         <!-- Styles -->
@@ -37,12 +37,15 @@
                         <tr>
                             <td>
                                 <span>Cotton T-Shirt, Medium</span>
+                                <input type="hidden" value="Cotton T-Shirt, Medium"/>
                             </td>
                             <td class="price">
                                 <span>£1.99</span>
+                                <input type="hidden" value="1.99"/>
                             </td>
                             <td>
                                 <input type="text" class="quantity" value="1"/>
+                                <input type="hidden" class="quantity" value="1"/>
                                 <span class="quantity">
                                     <button class="plus"  type="button">+</button>
                                     <button class="minus" type="button">-</button>
@@ -50,36 +53,44 @@
                             </td>
                             <td class="cost">
                                 <span>£1.99</span>
+                                <input type="hidden" value="1.99"/>
                                 <a href="#" class="remove-item icon-trash"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <span>Baseball Cap, One Size</span>
+                                 <input type="hidden" value="Cotton T-Shirt, Medium"/>
                             </td>
                             <td class="price">
                                 <span>£2.99</span>
+                                <input type="hidden" value="2.99"/>
                             </td>
                             <td>
                                 <input type="text" class="quantity" value="2"/>
+                                <input type="hidden" class="quantity" value="2"/>
                                 <span class="quantity">
                                     <button class="plus"  type="button">+</button>
                                     <button class="minus" type="button">-</button>                                </span>
                             </td>
                             <td class="cost">
                                 <span>£5.98</span>
+                                <input type="hidden" value="5.98"/>
                                 <a href="#" class="remove-item icon-trash"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <span>Swim Shorts, Medium</span>
+                                <input type="hidden" value="Swim Shorts, Medium"/>
                             </td>
                             <td class="price">
                                 <span>£3.99</span>
+                                <input type="hidden" value="3.99"/>
                             </td>
                             <td>
                                 <input type="text" class="quantity" value="1"/>
+                                <input type="hidden" class="quantity" value="1"/>
                                 <span class="quantity">
                                     <button class="plus"  type="button">+</button>
                                     <button class="minus" type="button">-</button>
@@ -87,6 +98,7 @@
                             </td>
                             <td class="cost">
                                 <span>£3.99</span>
+                                <input type="hidden" value="3.99"/>
                                 <a href="#" class="remove-item icon-trash"></a>
                             </td>
                         </tr>
@@ -95,14 +107,17 @@
                         <tr>
                             <td colspan="3"><span>Subtotal</span></td>
                             <td class="subtotal"><span> £11.96</span></td>
+                            <input type="hidden" value="11.96"/>
                         </tr>
                         <tr>
                             <td colspan="3"><span>VAT @ 20%</span></td>
                             <td class="vat"> <span> £2.39</span></td>
+                            <input type="hidden" value="2.39"/>
                         </tr>
                         <tr>
                             <td colspan="3"><span>Total Cost</span></td>
                             <td class="total-cost"><span>£14.35</span></td>
+                            <input type="hidden" value="14.35"/>
                         </tr>
                     </tfoot>
                 </table>
