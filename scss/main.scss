@@ -1,9 +1,6 @@
 html {
-  background: linear-gradient(white, #dadada);
-  height: 100%;
-  width: 100%;
   position: relative;
-  min-height: 700px;
+  min-height: 100%;
 
   @media screen and (max-width: 640px) {
     height: auto;
@@ -36,17 +33,19 @@ $dark-blue-hover: #3333ff;
 
 body {
   @extend .font-serif;
-  height: 100%;
+  background: linear-gradient(white, #dadada);
+  margin-bottom: 80px;
 }
 
 
 .wrapper {
   margin: 0 auto;
   width: 80%;
-  height: 100%;
   max-width: 540px;
   padding-top: 40px;
-  margin: 0 auto -41px;
+  margin: auto;
+  margin-bottom: 80px;
+  // margin-bottom: 151px;
 }
 
 h1 {
@@ -107,7 +106,7 @@ header {
 
 form {
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 49px;
 
   input[type="text"] {
     height: 30px;
@@ -130,16 +129,15 @@ form {
     border-radius: 10px;
     box-shadow: 4px 4px 5px rgba(0,0,0,0.5);
     cursor: pointer;
-    bottom: 0;
     right: 5%;
     width: 125px;
     height: 51px;
     font-size: 20px;
     outline: 0;
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
     transition: background-color 0.1s ease-in;
-    right: 10px;
-    position: absolute;
-    bottom: -90px;
 
     @media screen and (max-width: 640px) {
       position: relative;
@@ -260,15 +258,21 @@ table {
 
 
   tfoot {
-    td {
-      &:nth-child(2) {
-        text-align: right;
-        padding-right: 17px;
-      }
-    }
 
     tr {
       color: #666666;
+
+      &:nth-child(1) {
+        td {
+          vertical-align: bottom;
+          padding-top: 40px;
+        }
+      }
+
+      &:nth-child(2) {
+        text-align: right;
+        padding-right: 17px;
+      }   
 
       &:nth-child(even) {
         background: none;
@@ -277,8 +281,22 @@ table {
       &:last-child {
         color: black;
         font-weight: 800;
+
+        td {
+          vertical-align: bottom;
+          padding-top: 20px;
+        }
       }
     }
+
+    td { 
+      &:nth-child(3) {
+        height: 75px;
+        vertical-align: bottom;
+      }
+    }
+
+    
   }
 }
 
@@ -289,6 +307,8 @@ footer {
   border-top: 1px solid black;
   background: #666;
   padding-top: 15px;
+  position: absolute;
+  bottom:0;
 
   p {
     font-size: 12px;
