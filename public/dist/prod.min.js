@@ -1,7 +1,6 @@
 (function(w,d) {
 
 	//Cache common selectors we need. 
-
 	var $quantities = $('input.quantity'),
 		$removeItem = $('.remove-item'),
 		$form = $('form');
@@ -13,7 +12,7 @@
 		formSubmit();
 	}
 
-	//Add a click event for when the bin is clicked and also check if it is the last row.
+	//Add a click event for each bin to remove the item and also check if it is the last row.
 	function removeItems() {
 		$removeItem.each(function(i, el) {
 			var $el = $(el);
@@ -85,8 +84,7 @@
 		}
 
 		input.val(parseInt(quantity)).attr('value', parseInt(quantity));
-		calculateCost(quantity, input);
-		
+		calculateCost(quantity, input);		
 	};
 
 
@@ -96,9 +94,9 @@
 			$itemPrice = row.find('.price span'),
 			$itemCost = row.find('.cost span'),
 			$costField = row.find('.cost input');
-			itemCost = parseFloat($itemPrice.text().replace(/\u00A3/g, '')).toFixed(2),
-			qCost = parseFloat(quantity * itemCost).toFixed(2);
 
+		itemCost = parseFloat($itemPrice.text().replace(/\u00A3/g, '')).toFixed(2),
+		qCost = parseFloat(quantity * itemCost).toFixed(2);
 		$costField.val(qCost);
 		$itemCost.text('£' + qCost);
 		calculateSubtotal();
