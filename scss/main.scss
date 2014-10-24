@@ -338,4 +338,9 @@ html.lt-ie9 {
   input[type="text"]{
     line-height: 25px;
   }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
 }
