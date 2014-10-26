@@ -22,7 +22,7 @@ function startExpress() {
     app.use(require('connect-livereload')());
     app.use(express.static(__dirname + '/public'));
     app.listen(4000);
-    console.log('4000');
+    console.log('http://localhost:4000 running');
 }
 
 
