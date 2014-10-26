@@ -45,6 +45,11 @@ body {
   padding-top: 120px;
   margin: auto;
   margin-bottom: 180px;
+
+  @media screen and (max-width: 640px) {
+    padding-top: 40px;
+  }
+
 }
 
 h1 {
@@ -94,6 +99,7 @@ header {
 
   @media screen and (max-width: 640px) {
     top: 33%;
+    left: 80px;
   }
 
   &:hover {
