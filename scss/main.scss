@@ -2,6 +2,8 @@ html {
   position: relative;
   min-height: 100%;
 
+//Usually I would have a seperate partial with mobile styles wrapped in a media query.
+//However, for this exercise I am not anticipating a huge amount of mobile styles so I will put them on each element I want to style for mobile.
   @media screen and (max-width: 640px) {
     height: auto;
     min-height: inherit;
@@ -25,7 +27,7 @@ html {
   font-size: 1em;
 }
 
-//Variables
+//Some common colour variables
 $border-grey: #787878;
 $dark-blue: #000066;
 $dark-blue-hover: #3333ff;
@@ -36,7 +38,6 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d9d9d9',GradientType=0 );
 }
 
-
 .wrapper {
   margin: 0 auto;
   width: 80%;
@@ -44,7 +45,6 @@ body {
   padding-top: 120px;
   margin: auto;
   margin-bottom: 180px;
-  // margin-bottom: 151px;
 }
 
 h1 {
@@ -214,7 +214,6 @@ thead {
 }
 
 tr {
-
   td {
     text-align: center;
     padding: 9px 0;

@@ -1,10 +1,11 @@
 (function(w,d) {
 
-	//Cache common selectors we need. 
+	//Cache some common selectors we need. 
 	var $quantities = $('input.quantity'),
 		$removeItem = $('.remove-item'),
 		$form = $('form');
 
+	//Initialise the functions we need to run. This is called at the bottom of the JS file. 
 	function init() {
 		removeItems();
 		plusMinus();
@@ -12,7 +13,7 @@
 		formSubmit();
 	}
 
-	//Add a click event for each bin to remove the item and also check if it is the last row.
+	//Add a click event for each bin to remove the item.  Check if it is the last row and behave accordingly.
 	function removeItems() {
 		$removeItem.each(function(i, el) {
 			var $el = $(el);
@@ -31,7 +32,7 @@
 		});
 	};
 
-	//Deal with the plus and minus buttons.
+	//The function to handle whether the plus/minus buttons are clicked
 	function plusMinus() {
 		var $button = $('span.quantity a');
 		$button.each(function(i, el) {
@@ -56,7 +57,7 @@
 			var oldVal = $el.val();
 			$el.change(function() {
 			  	var val = $el.val();
-			  	//Check to see if the user inputs anything other than a number and if so revert it to its original state. 
+			  	//Check to see if the user inputs anything other than a number, if so revert it to its original state. 
 			  	if (!isNaN(val)) {
 					changeQuantity(val, input);
 			  	} else {
@@ -69,6 +70,7 @@
 
 	//Deal with the change in quanities. Handles both text input and buttons
 	function changeQuantity(change, input) {
+		//If the user remove the item, set its quantity to 0.
 		if(change == 'removed') quantity = 0;
 		if(change =='inc' || change =='dec'){
 			var quantity = input.val();
@@ -83,6 +85,7 @@
 			if(change < 0)  quantity = 0;
 		}
 
+		//Update the values of the input fields, including the hidden ones. 
 		input.val(parseInt(quantity)).attr('value', parseInt(quantity));
 		calculateCost(quantity, input);		
 	};
@@ -95,8 +98,11 @@
 			$itemCost = row.find('.cost span'),
 			$costField = row.find('.cost input');
 
+		//Get the item cost, remove the '£' sign from the span, make it into an float with 2 decimal places, from a strong. 
 		itemCost = parseFloat($itemPrice.text().replace(/\u00A3/g, '')).toFixed(2),
 		qCost = parseFloat(quantity * itemCost).toFixed(2);
+
+		//Update the input fields and also the spans that are shown on the cart.
 		$costField.val(qCost);
 		$itemCost.text('£' + qCost);
 		calculateSubtotal();
@@ -106,12 +112,16 @@
 	function calculateSubtotal() {
 		var $costs = $('.cost span'),
 			subtotal = 0;
+
+		//Go through each cost span, get the amount and add it on to the subtotal to give the subtotal of each item in the basket.
 		$costs.each(function(i, el) {
 			var $el = $(el);
 			var amount =  parseFloat($el.text().replace(/\u00A3/g, ''));
 			subtotal = subtotal + amount;
 		});
 		var newSub = parseFloat(subtotal);
+
+		//Update the subtotal field and also the span that is shown on the cart.
 		$('.subtotal input').val(newSub.toFixed(2));
 		$('.subtotal span').text('£' + newSub.toFixed(2));
 		valueAddedTax(newSub);
@@ -121,6 +131,8 @@
 	function valueAddedTax(newSub){
 		var $vatField = $('.vat span'),
 			vat = 0.2 * newSub;
+
+		//Update the VAT input field and also the span that is shown on the cart.
 		$('.vat input').val(vat.toFixed(2));
 		$vatField.text('£' + vat.toFixed(2));
 		calculateTotalPrice(newSub, vat);
@@ -130,11 +142,13 @@
 	function calculateTotalPrice(newSub, vat){
 		var $total = $('.total-cost span');		
 		var total = newSub + vat;
+
+		//Update the total cost input field and also the span that is shown on the cart.
 		$('.total-cost input').val(total.toFixed(2));
 		$total.text('£' + total.toFixed(2));
 	};
 
-	//Form Submit
+	//Form Submit. This will happend when the form is submitted. 
 	function formSubmit() {
 		$form.submit(function(event) {
 			event.preventDefault();
@@ -150,7 +164,7 @@
 		        	alert('ajax complete');
 		        },
 		        error: function() {
-		       		//Ajax fail call back. I would show some sort of error message if the ajax failed.
+		       		//Ajax fail call back. I would show some sort of error message to the end user if the ajax failed.
 		        	alert('ajax failed');
 		        } 
 		    });
